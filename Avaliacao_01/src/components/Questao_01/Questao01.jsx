@@ -7,6 +7,7 @@ function Questao01X() {
         {nome: "Fulano", notas: {ap1: 7.3, ap2: 9.2}},
     ];
 
+    // Recebe o retorno do elemento filho e printa os nomes dos alunos com média maior ou igual a 7:
     const receberRetorno = (med) => {
         return (
             <>
@@ -34,6 +35,7 @@ function Questao01X() {
 const Questao01Y = ({alunos, retorno}) => {
     const[medias, setMedias] = useState([])
 
+    // Calcula a média dos dados recebido pela prop 'alunos' e armazena essas médias no estado 'medias' que consiste em um array, junto com o nome de cada aluno.
     useEffect(() => {
         alunos.forEach(elem => {
             const media = (elem.notas.ap1 + elem.notas.ap2)/2.0
@@ -42,7 +44,7 @@ const Questao01Y = ({alunos, retorno}) => {
     }, []);
 
     const retornar = () => {
-        retorno(medias.slice(0,3))
+        retorno(medias.slice(0,3)) // Retorna um array de 3 posições contendo a média para o elemento pai.
     }
 
     
