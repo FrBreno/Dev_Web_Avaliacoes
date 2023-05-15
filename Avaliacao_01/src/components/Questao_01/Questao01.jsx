@@ -7,13 +7,15 @@ function Questao01X() {
         {nome: "Fulano", notas: {ap1: 7.3, ap2: 9.2}},
     ];
 
-    // Recebe o retorno do elemento filho e printa os nomes dos alunos com média maior ou igual a 7:
+    // Recebe o retorno do elemento filho e passa os nomes dos alunos para o JSX do componente, para aquele aluno com média maior ou igual a 7:
     const receberRetorno = (med) => {
         return (
             <>
                 {
-                    med.forEach(elem => {
-                        return (<p>{elem.nome}</p>)
+                    med.map((elem, index) => {
+                        if (med.media >= 7) {
+                            <p key={index}>{elem.nome}</p>
+                        }
                     })
                 }
             </>
@@ -27,7 +29,10 @@ function Questao01X() {
                 alunos={alunos}
                 retorno={receberRetorno}
             />
-            {receberRetorno}
+            {
+                // Recebe o JSX retornado da função 'receberRetorno' e printa na tela:
+                receberRetorno
+            }
         </div>
     );
 }
