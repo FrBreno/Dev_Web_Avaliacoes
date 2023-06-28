@@ -46,6 +46,15 @@ const MyMenu = () => {
                     >
                         Listar
                     </MenuItem>
+                    <MenuItem
+                        onClick={() => {
+                            handleCloseAnchorElAluno()
+                        }}
+                        component={Link}
+                        to={`listar-${menuName.slice(0, menuName.length - 1)}s-aprovados`}
+                    >
+                        Listar Alunos Aprovados
+                    </MenuItem>
                 </Menu>
             </Box>
         );
@@ -65,7 +74,7 @@ const MyMenu = () => {
                         <Typography
                             variant='h5'
                             component='a'
-                            href='/'
+                            href='/home'
                             sx={{
                                 textDecoration: 'none',
                                 color: '#fff',

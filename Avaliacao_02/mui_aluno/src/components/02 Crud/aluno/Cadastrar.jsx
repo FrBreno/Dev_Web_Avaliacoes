@@ -46,15 +46,25 @@ const CadastrarAluno = () => {
                     name="nome"
                     onChange={(event) => setNome(event.target.value)}
                     />
-                <TextField 
-                    required
-                    fullWidth
-                    margin="normal"
-                    label="Curso"
-                    id="curso"
-                    name="curso"
-                    onChange={(event) => setCurso(event.target.value)}
-                />
+                {/* Atualizando a inserção de curso utilizando um select: */}
+                <FormControl sx={{mt:2, width:'100%'}} required>
+                    <InputLabel id="select-curso-label">Curso</InputLabel>
+                    {/* A lógica permanece a mesma (onChange): */}
+                    <Select
+                        labelId="select-curso-label"
+                        label="Curso"
+                        value={curso}
+                        onChange={(event) => setCurso(event.target.value)}
+                    >
+                        {/* Itens disponiveis para seleção */}
+                        <MenuItem value="DD">Design Digital</MenuItem>
+                        <MenuItem value="SI">Sistema de Informação</MenuItem>
+                        <MenuItem value="CC">Ciência da Computação</MenuItem>
+                        <MenuItem value="ES">Engenharia de Software</MenuItem>
+                        <MenuItem value="EC">Engenharia da Computação</MenuItem>
+                        <MenuItem value="RC">Redes de Computadores</MenuItem>
+                    </Select>
+                </FormControl>
                 <TextField
                     margin="normal"
                     required

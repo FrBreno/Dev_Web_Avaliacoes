@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var AlunoServiceMongo = require('../services/aluno.service.mongo');
+var LoginService = require('../services/login.service');
 
 router.get(
     '/listar',
@@ -35,5 +36,13 @@ router.get(
     (req, res, next) => {
         AlunoServiceMongo.retrieve(req, res);
 });
+
+// Nova rota para login:
+router.post(
+    '/login',
+    (req, res, next) => {
+        LoginService.comparar(req, res);
+    }
+);
 
 module.exports = router;
